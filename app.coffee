@@ -18,7 +18,8 @@ tools.storeOriginal(PSD)
 
 PSD.dotActive.states.animationOptions =
 #  curve: "spring(150, 22, 1)"
-  curve: "ease-both"
+  curve: "bezier-curve"
+  curveOptions: "ease-in-out"
   time: 1
 
 
@@ -68,9 +69,19 @@ nextState = (view) ->
 #run
 #utils.delay 1, ->
 
-setInterval ->
-  nextState PSD.dotActive
-, 1000
+PSD.dotActive.on Events.AnimationEnd, ->
+  if PSD.dotActive.states.current == "dot3"
+    PSD.dotActive.states.switch "dot1"
+  else if PSD.dotActive.states.current == "dot1"
+    PSD.dotActive.states.switch "dot2"
+  else if PSD.dotActive.states.current == "dot2"
+    PSD.dotActive.states.switch "dot3"
+
+PSD.dotActive.states.switch "dot1"
+
+#setInterval ->
+#  nextState PSD.dotActive
+#, 1000
 
 
 # Set states
@@ -81,17 +92,39 @@ PSD.dotInside.states.animationOptions =
 
 PSD.dotInside.states.add
   top:
-    y: PSD.dotInside.originalFrame.y + 100
-    scale: 0.75
+#    y: PSD.dotInside.originalFrame.y + 100
+    y: PSD.dotInside.originalFrame.y
   bottom:
-    y: PSD.dotInside.originalFrame.y - 100
+#    y: PSD.dotInside.originalFrame.y - 100
+    y: PSD.dotInside.originalFrame.y
+
+PSD.dotInside.states.animationOptions =
+  curve: "spring(150, 50, 10)"
+#  curve: "ease-out"
+#  time: 0.15
+PSD.dotScale.states.add
+  big:
     scale: 1.25
+  small:
+    scale: 0.75
 
-setInterval ->
-  if PSD.dotInside.states.current == "top"
-    PSD.dotInside.states.switch "bottom"
+
+PSD.dotScale.on Events.AnimationEnd, ->
+  console.log "what"
+  if PSD.dotScale.states.current == "big"
+    PSD.dotScale.states.switch "small"
   else
-    PSD.dotInside.states.switch "top"
-, 300
+    PSD.dotScale.states.switch "big"
 
+PSD.dotScale.states.switch "small"
+
+#setInterval ->
+#  if PSD.dotInside.states.current == "top"
+#    PSD.dotInside.states.switch "bottom"
+#    PSD.dotScale.states.switch "big"
+#  else
+#    PSD.dotInside.states.switch "top"
+#    PSD.dotScale.states.switch "small"
+#, 300
+#
 

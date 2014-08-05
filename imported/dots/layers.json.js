@@ -119,8 +119,8 @@ window.__imported__["dots/layers.json.js"] = [
 		"modification": null,
 		"children": [
 			{
-				"id": "D43E459E-AAD0-4A0B-8549-1E4185548F6A",
-				"name": "dotInside",
+				"id": "9951C0A8-EA40-40D5-8574-07ED9DBA9204",
+				"name": "dotScale",
 				"maskFrame": null,
 				"layerFrame": {
 					"x": 211,
@@ -129,7 +129,7 @@ window.__imported__["dots/layers.json.js"] = [
 					"height": 82
 				},
 				"image": {
-					"path": "images/D43E459E-AAD0-4A0B-8549-1E4185548F6A.png",
+					"path": "images/9951C0A8-EA40-40D5-8574-07ED9DBA9204.png",
 					"frame": {
 						"x": 211,
 						"y": 246,
@@ -139,7 +139,32 @@ window.__imported__["dots/layers.json.js"] = [
 				},
 				"imageType": "png",
 				"modification": null,
-				"children": [],
+				"children": [
+					{
+						"id": "D43E459E-AAD0-4A0B-8549-1E4185548F6A",
+						"name": "dotInside",
+						"maskFrame": null,
+						"layerFrame": {
+							"x": 211,
+							"y": 246,
+							"width": 82,
+							"height": 82
+						},
+						"image": {
+							"path": "images/D43E459E-AAD0-4A0B-8549-1E4185548F6A.png",
+							"frame": {
+								"x": 211,
+								"y": 246,
+								"width": 82,
+								"height": 82
+							}
+						},
+						"imageType": "png",
+						"modification": null,
+						"children": [],
+						"visible": true
+					}
+				],
 				"visible": true
 			}
 		],

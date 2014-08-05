@@ -10,7 +10,6 @@ PSD.dotActive.states.animationOptions =
   curveOptions: "ease-in-out"
   time: 1
 
-
 resetStates = ->
   PSD.dotActive.states.add
     dot1:
@@ -56,13 +55,30 @@ PSD.dotActive.on Events.AnimationEnd, ->
 
 PSD.dotActive.states.switch "dot1"
 
+PSD.distancedot2.draggable.enabled = true
+# Disable horizontal dragging
+PSD.distancedot2.draggable.speedX = 0
+
+verticalOffset = (PSD.distancedot1.y - PSD.distancedot2.y) / 2
+
+setVerticalOffset = ->
+  verticalOffset = (PSD.distancedot1.y - PSD.distancedot2.y) / 2
+  PSD.dotInside.states.add
+    top:
+      y: PSD.dotInside.originalFrame.y + verticalOffset
+    bottom:
+      y: PSD.dotInside.originalFrame.y - verticalOffset
+
+PSD.distancedot2.on Events.DragEnd, setVerticalOffset
+
+setVerticalOffset()
 
 # Set up vertical movement
 PSD.dotInside.states.add
   top:
-    y: PSD.dotInside.originalFrame.y + 100
+    y: PSD.dotInside.originalFrame.y + verticalOffset
   bottom:
-    y: PSD.dotInside.originalFrame.y - 100
+    y: PSD.dotInside.originalFrame.y - verticalOffset
 
 PSD.dotInside.states.animationOptions =
   curve: "bezier-curve"
@@ -78,7 +94,7 @@ PSD.dotInside.on Events.AnimationEnd, ->
 
 PSD.dotInside.states.switch "top"
 
-# Set up scaling
+## Scaling ## -----------------------------------------------
 PSD.dotScale.states.add
   big:
     scale: 1.5
@@ -95,3 +111,4 @@ PSD.dotScale.on Events.AnimationEnd, ->
     PSD.dotScale.states.switch "big"
 
 PSD.dotScale.states.switch "small"
+

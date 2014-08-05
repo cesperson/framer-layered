@@ -97,6 +97,78 @@ window.__imported__["dots/layers.json.js"] = [
 		"visible": true
 	},
 	{
+		"id": "B3B011A9-9DA6-43FB-B4B1-B30559FEC4EA",
+		"name": "distancedot1",
+		"maskFrame": null,
+		"layerFrame": {
+			"x": 392,
+			"y": 931,
+			"width": 42,
+			"height": 42
+		},
+		"image": {
+			"path": "images/B3B011A9-9DA6-43FB-B4B1-B30559FEC4EA.png",
+			"frame": {
+				"x": 392,
+				"y": 931,
+				"width": 42,
+				"height": 42
+			}
+		},
+		"imageType": "png",
+		"modification": null,
+		"children": [],
+		"visible": true
+	},
+	{
+		"id": "7B5469EB-F13F-425C-8C41-BEB5ED49F8CA",
+		"name": "distancedot2",
+		"maskFrame": null,
+		"layerFrame": {
+			"x": 392,
+			"y": 831,
+			"width": 42,
+			"height": 42
+		},
+		"image": {
+			"path": "images/7B5469EB-F13F-425C-8C41-BEB5ED49F8CA.png",
+			"frame": {
+				"x": 392,
+				"y": 831,
+				"width": 42,
+				"height": 42
+			}
+		},
+		"imageType": "png",
+		"modification": null,
+		"children": [],
+		"visible": true
+	},
+	{
+		"id": "B386B1D1-279D-4846-8ED1-405CF86A5209",
+		"name": "distancedotbackforth",
+		"maskFrame": null,
+		"layerFrame": {
+			"x": 392,
+			"y": 831,
+			"width": 42,
+			"height": 42
+		},
+		"image": {
+			"path": "images/B386B1D1-279D-4846-8ED1-405CF86A5209.png",
+			"frame": {
+				"x": 392,
+				"y": 831,
+				"width": 42,
+				"height": 42
+			}
+		},
+		"imageType": "png",
+		"modification": null,
+		"children": [],
+		"visible": true
+	},
+	{
 		"id": "485FA0DF-1A5D-488E-85F0-5DEB87DC68C9",
 		"name": "dotActive",
 		"maskFrame": null,

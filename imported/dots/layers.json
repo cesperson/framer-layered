@@ -148,18 +148,18 @@
 		"name": "distancedotbackforth",
 		"maskFrame": null,
 		"layerFrame": {
-			"x": 392,
-			"y": 831,
-			"width": 42,
-			"height": 42
+			"x": 401,
+			"y": 890,
+			"width": 24,
+			"height": 24
 		},
 		"image": {
 			"path": "images/B386B1D1-279D-4846-8ED1-405CF86A5209.png",
 			"frame": {
-				"x": 392,
-				"y": 831,
-				"width": 42,
-				"height": 42
+				"x": 401,
+				"y": 890,
+				"width": 24,
+				"height": 24
 			}
 		},
 		"imageType": "png",

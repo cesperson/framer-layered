@@ -55,44 +55,79 @@ PSD.dotActive.on Events.AnimationEnd, ->
 
 PSD.dotActive.states.switch "dot1"
 
+## Vertical ## ------------------------------------------------------
+
 PSD.distancedot2.draggable.enabled = true
 # Disable horizontal dragging
 PSD.distancedot2.draggable.speedX = 0
 
-verticalOffset = (PSD.distancedot1.y - PSD.distancedot2.y) / 2
+verticalOffset = PSD.distancedot1.y - PSD.distancedot2.y
 
 setVerticalOffset = ->
-  verticalOffset = (PSD.distancedot1.y - PSD.distancedot2.y) / 2
+  verticalOffset = PSD.distancedot1.y - PSD.distancedot2.y
+  console.log verticalOffset
   PSD.dotInside.states.add
     top:
       y: PSD.dotInside.originalFrame.y + verticalOffset
     bottom:
       y: PSD.dotInside.originalFrame.y - verticalOffset
 
+  PSD.distancedotbackforth.states.add
+    top:
+      y: PSD.distancedot2.y
+    bottom:
+      y: PSD.distancedot1.y + 21
+
 PSD.distancedot2.on Events.DragEnd, setVerticalOffset
 
 setVerticalOffset()
 
 # Set up vertical movement
-PSD.dotInside.states.add
-  top:
-    y: PSD.dotInside.originalFrame.y + verticalOffset
-  bottom:
-    y: PSD.dotInside.originalFrame.y - verticalOffset
+setupVertical = (view) ->
+  view.states.add
+    top:
+      y: view.originalFrame.y + verticalOffset
+    bottom:
+      y: view.originalFrame.y - verticalOffset
 
-PSD.dotInside.states.animationOptions =
-  curve: "bezier-curve"
-  curveOptions: "ease-in-out"
-  time: 0.5
+  view.states.animationOptions =
+    curve: "bezier-curve"
+    curveOptions: "ease-in-out"
+    time: 0.5
+
+  view.on Events.AnimationEnd, ->
+    if view.states.current == "top"
+      view.states.switch "bottom"
+    else
+      view.states.switch "top"
+
+  view.states.switch "top"
+
+setupVertical(PSD.dotInside)
+
+setupVertical2 = (view) ->
+  view.states.add
+    top:
+      y: PSD.distancedot2.y
+    bottom:
+      y: PSD.distancedot1.y
+
+  view.states.animationOptions =
+    curve: "bezier-curve"
+    curveOptions: "ease-in-out"
+    time: 0.5
+
+  view.on Events.AnimationEnd, ->
+    if view.states.current == "top"
+      view.states.switch "bottom"
+    else
+      view.states.switch "top"
+
+  view.states.switch "top"
+
+setupVertical2(PSD.distancedotbackforth)
 
 
-PSD.dotInside.on Events.AnimationEnd, ->
-  if PSD.dotInside.states.current == "top"
-    PSD.dotInside.states.switch "bottom"
-  else
-    PSD.dotInside.states.switch "top"
-
-PSD.dotInside.states.switch "top"
 
 ## Scaling ## -----------------------------------------------
 PSD.dotScale.states.add
@@ -110,5 +145,5 @@ PSD.dotScale.on Events.AnimationEnd, ->
   else
     PSD.dotScale.states.switch "big"
 
-PSD.dotScale.states.switch "small"
+#PSD.dotScale.states.switch "small"
 

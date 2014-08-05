@@ -88,8 +88,6 @@ setVerticalOffset = ->
 PSD.distancedot1.on Events.DragEnd, setVerticalOffset
 PSD.distancedot2.on Events.DragEnd, setVerticalOffset
 
-setVerticalOffset()
-
 # Set up vertical movement
 setupVertical = (view) ->
   view.states.add
@@ -131,7 +129,7 @@ setupVertical2 = (view) ->
     else
       view.states.switch "top"
 
-  view.states.switch "top"
+  view.states.switch "bottom"
 
 setupVertical2(PSD.distancedotbackforth)
 
@@ -159,17 +157,61 @@ PSD.dotScale.states.switch "small"
 # Make the layer draggable
 PSD.scalecontrol.draggable.enabled = true
 
-# Add an animation to the end of a drag
-PSD.scalecontrol.on Events.DragEnd, (event, layer) ->
+PSD.scalecontrol.states.add
+  big:
+    scale: 1.5
+  small:
+    scale: 0.5
 
-  # Snap back to origin
-  animation = layer.animate
-    properties:
-      x: layer.originalFrame.x
-      y: layer.originalFrame.y
-    curve: "spring"
-    curveOptions:
-      friction: 20
-      tension: 400
-      velocity: 20
+PSD.scalecontrol.states.animationOptions =
+  curve:'spring(150,20,0)'
+
+PSD.scalecontrol.on Events.AnimationEnd, ->
+  if PSD.scalecontrol.states.current == "big"
+    PSD.scalecontrol.states.switch "small"
+  else
+    PSD.scalecontrol.states.switch "big"
+
+PSD.scalecontrol.states.switch "small"
+
+PSD.plus.on Events.TouchEnd, ->
+  PSD.dotScale.states.add
+    big:
+      scale: PSD.scalecontrol.states._states.big.scale + 0.1
+  PSD.scalecontrol.states.add
+    big:
+      scale: PSD.scalecontrol.states._states.big.scale + 0.1
+
+PSD.minus.on Events.TouchEnd, ->
+  PSD.dotScale.states.add
+    big:
+      scale: PSD.scalecontrol.states._states.big.scale + 0.1
+  PSD.scalecontrol.states.add
+    big:
+      scale: PSD.scalecontrol.states._states.big.scale - 0.1
+
+
+# Add an animation to the end of a drag
+#PSD.scalecontrol.on Events.DragEnd, (event, layer) ->
+#
+#  difference = layer.x - layer.originalFrame.x
+#  console.log "difference " + difference
+#  console.log "scale " + layer.scale * 0.1
+#  # update scalecontrol scaling
+#  PSD.scalecontrol.states.add
+#    big:
+#      scale: layer.scale + (difference * 0.1)
+#    small:
+#      scale: 0.5
+#
+#  # Snap back to origin
+#  animation = layer.animate
+#    properties:
+#      x: layer.originalFrame.x
+#      y: layer.originalFrame.y
+#    curve: "spring"
+#    curveOptions:
+#      friction: 20
+#      tension: 400
+#      velocity: 20
 

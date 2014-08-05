@@ -174,16 +174,16 @@
 		"layerFrame": {
 			"x": 47,
 			"y": 283,
-			"width": 24,
-			"height": 24
+			"width": 62,
+			"height": 62
 		},
 		"image": {
 			"path": "images/B386B1D1-279D-4846-8ED1-405CF86A5209.png",
 			"frame": {
 				"x": 47,
 				"y": 283,
-				"width": 24,
-				"height": 24
+				"width": 62,
+				"height": 62
 			}
 		},
 		"imageType": "png",
@@ -263,6 +263,54 @@
 				"visible": true
 			}
 		],
+		"visible": true
+	},
+	{
+		"id": "A3593E98-9E49-4646-8144-1FAB08AD9CD8",
+		"name": "plus",
+		"maskFrame": null,
+		"layerFrame": {
+			"x": 66,
+			"y": 209,
+			"width": 24,
+			"height": 49
+		},
+		"image": {
+			"path": "images/A3593E98-9E49-4646-8144-1FAB08AD9CD8.png",
+			"frame": {
+				"x": 66,
+				"y": 209,
+				"width": 24,
+				"height": 49
+			}
+		},
+		"imageType": "png",
+		"modification": null,
+		"children": [],
+		"visible": true
+	},
+	{
+		"id": "A52835DB-D4BE-4B34-A1E8-BE0371CF8E88",
+		"name": "minus",
+		"maskFrame": null,
+		"layerFrame": {
+			"x": 71,
+			"y": 366,
+			"width": 14,
+			"height": 49
+		},
+		"image": {
+			"path": "images/A52835DB-D4BE-4B34-A1E8-BE0371CF8E88.png",
+			"frame": {
+				"x": 71,
+				"y": 366,
+				"width": 14,
+				"height": 49
+			}
+		},
+		"imageType": "png",
+		"modification": null,
+		"children": [],
 		"visible": true
 	}
 ]

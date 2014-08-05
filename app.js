@@ -112,8 +112,6 @@
 
   PSD.distancedot2.on(Events.DragEnd, setVerticalOffset);
 
-  setVerticalOffset();
-
   setupVertical = function(view) {
     view.states.add({
       top: {
@@ -161,7 +159,7 @@
         return view.states["switch"]("top");
       }
     });
-    return view.states["switch"]("top");
+    return view.states["switch"]("bottom");
   };
 
   setupVertical2(PSD.distancedotbackforth);
@@ -191,18 +189,51 @@
 
   PSD.scalecontrol.draggable.enabled = true;
 
-  PSD.scalecontrol.on(Events.DragEnd, function(event, layer) {
-    var animation;
-    return animation = layer.animate({
-      properties: {
-        x: layer.originalFrame.x,
-        y: layer.originalFrame.y
-      },
-      curve: "spring",
-      curveOptions: {
-        friction: 20,
-        tension: 400,
-        velocity: 20
+  PSD.scalecontrol.states.add({
+    big: {
+      scale: 1.5
+    },
+    small: {
+      scale: 0.5
+    }
+  });
+
+  PSD.scalecontrol.states.animationOptions = {
+    curve: 'spring(150,20,0)'
+  };
+
+  PSD.scalecontrol.on(Events.AnimationEnd, function() {
+    if (PSD.scalecontrol.states.current === "big") {
+      return PSD.scalecontrol.states["switch"]("small");
+    } else {
+      return PSD.scalecontrol.states["switch"]("big");
+    }
+  });
+
+  PSD.scalecontrol.states["switch"]("small");
+
+  PSD.plus.on(Events.TouchEnd, function() {
+    PSD.dotScale.states.add({
+      big: {
+        scale: PSD.scalecontrol.states._states.big.scale + 0.1
+      }
+    });
+    return PSD.scalecontrol.states.add({
+      big: {
+        scale: PSD.scalecontrol.states._states.big.scale + 0.1
+      }
+    });
+  });
+
+  PSD.minus.on(Events.TouchEnd, function() {
+    PSD.dotScale.states.add({
+      big: {
+        scale: PSD.scalecontrol.states._states.big.scale + 0.1
+      }
+    });
+    return PSD.scalecontrol.states.add({
+      big: {
+        scale: PSD.scalecontrol.states._states.big.scale - 0.1
       }
     });
   });

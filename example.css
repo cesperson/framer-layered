@@ -35,6 +35,9 @@ body {
 	background: red;
 	border: 2px solid red;
 }
-div[name=dotActive] {
-    pointer-events: none !important;
-}
+div[name=dotActive] { pointer-events: none !important; }
+
+div[name=dot1],
+div[name=dot2],
+div[name=dot3]
+{ cursor: pointer !important; }

@@ -41,6 +41,12 @@
     return view.opacity = 0.1;
   };
 
+  PSD.dotActive.sendToBack();
+
+  PSD.dotActive.placeBefore(PSD.background);
+
+  PSD.bg.sendToBack();
+
   prepDot(PSD.dot1);
 
   prepDot(PSD.dot2);
@@ -71,6 +77,10 @@
 
   PSD.dotActive.states["switch"]("dot1");
 
+  PSD.distancedot1.draggable.enabled = true;
+
+  PSD.distancedot1.draggable.speedX = 0;
+
   PSD.distancedot2.draggable.enabled = true;
 
   PSD.distancedot2.draggable.speedX = 0;
@@ -97,6 +107,8 @@
       }
     });
   };
+
+  PSD.distancedot1.on(Events.DragEnd, setVerticalOffset);
 
   PSD.distancedot2.on(Events.DragEnd, setVerticalOffset);
 
@@ -173,6 +185,26 @@
     } else {
       return PSD.dotScale.states["switch"]("big");
     }
+  });
+
+  PSD.dotScale.states["switch"]("small");
+
+  PSD.scalecontrol.draggable.enabled = true;
+
+  PSD.scalecontrol.on(Events.DragEnd, function(event, layer) {
+    var animation;
+    return animation = layer.animate({
+      properties: {
+        x: layer.originalFrame.x,
+        y: layer.originalFrame.y
+      },
+      curve: "spring",
+      curveOptions: {
+        friction: 20,
+        tension: 400,
+        velocity: 20
+      }
+    });
   });
 
 }).call(this);

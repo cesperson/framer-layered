@@ -35,3 +35,6 @@ body {
 	background: red;
 	border: 2px solid red;
 }
+div[name=dotActive] {
+    pointer-events: none !important;
+}

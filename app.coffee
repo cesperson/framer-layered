@@ -3,7 +3,8 @@ PSD = Framer.Importer.load("imported/dots")
 # Add original frame information to each layer
 tools.storeOriginal(PSD)
 
-## Fade from black ## --------------------------------------------------------------------------------------------------
+
+# Disable click on active dot
 
 PSD.dotActive.states.animationOptions =
   curve: "bezier-curve"
@@ -31,6 +32,10 @@ prepDot = (view) ->
     view.opacity = 0.1
   view.opacity = 0.1
 
+PSD.dotActive.sendToBack()
+PSD.dotActive.placeBefore PSD.background
+PSD.bg.sendToBack()
+
 prepDot PSD.dot1
 prepDot PSD.dot2
 prepDot PSD.dot3
@@ -57,8 +62,10 @@ PSD.dotActive.states.switch "dot1"
 
 ## Vertical ## ------------------------------------------------------
 
-PSD.distancedot2.draggable.enabled = true
 # Disable horizontal dragging
+PSD.distancedot1.draggable.enabled = true
+PSD.distancedot1.draggable.speedX = 0
+PSD.distancedot2.draggable.enabled = true
 PSD.distancedot2.draggable.speedX = 0
 
 verticalOffset = PSD.distancedot1.y - PSD.distancedot2.y
@@ -78,6 +85,7 @@ setVerticalOffset = ->
     bottom:
       y: PSD.distancedot1.y + 21
 
+PSD.distancedot1.on Events.DragEnd, setVerticalOffset
 PSD.distancedot2.on Events.DragEnd, setVerticalOffset
 
 setVerticalOffset()
@@ -128,7 +136,6 @@ setupVertical2 = (view) ->
 setupVertical2(PSD.distancedotbackforth)
 
 
-
 ## Scaling ## -----------------------------------------------
 PSD.dotScale.states.add
   big:
@@ -145,5 +152,24 @@ PSD.dotScale.on Events.AnimationEnd, ->
   else
     PSD.dotScale.states.switch "big"
 
-#PSD.dotScale.states.switch "small"
+PSD.dotScale.states.switch "small"
+
+## Scaling control
+
+# Make the layer draggable
+PSD.scalecontrol.draggable.enabled = true
+
+# Add an animation to the end of a drag
+PSD.scalecontrol.on Events.DragEnd, (event, layer) ->
+
+  # Snap back to origin
+  animation = layer.animate
+    properties:
+      x: layer.originalFrame.x
+      y: layer.originalFrame.y
+    curve: "spring"
+    curveOptions:
+      friction: 20
+      tension: 400
+      velocity: 20
 

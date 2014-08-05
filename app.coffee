@@ -82,10 +82,10 @@ PSD.dotInside.states.animationOptions =
 PSD.dotInside.states.add
   top:
     y: PSD.dotInside.originalFrame.y + 100
-    scale: 0.5
+    scale: 0.75
   bottom:
     y: PSD.dotInside.originalFrame.y - 100
-    scale: 2
+    scale: 1.25
 
 setInterval ->
   if PSD.dotInside.states.current == "top"

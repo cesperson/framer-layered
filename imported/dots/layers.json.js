@@ -25,22 +25,22 @@ window.__imported__["dots/layers.json.js"] = [
 		"visible": true
 	},
 	{
-		"id": "2176591F-2B05-409C-8064-D476883F524F",
+		"id": "D2CF4FA9-FF59-4934-ACDB-33FB5E924FC9",
 		"name": "dot1",
 		"maskFrame": null,
 		"layerFrame": {
-			"x": 305,
-			"y": 192,
-			"width": 42,
-			"height": 42
+			"x": 328,
+			"y": 249,
+			"width": 64,
+			"height": 64
 		},
 		"image": {
-			"path": "images/2176591F-2B05-409C-8064-D476883F524F.png",
+			"path": "images/D2CF4FA9-FF59-4934-ACDB-33FB5E924FC9.png",
 			"frame": {
-				"x": 305,
-				"y": 192,
-				"width": 42,
-				"height": 42
+				"x": 328,
+				"y": 249,
+				"width": 64,
+				"height": 64
 			}
 		},
 		"imageType": "png",
@@ -53,18 +53,18 @@ window.__imported__["dots/layers.json.js"] = [
 		"name": "dot2",
 		"maskFrame": null,
 		"layerFrame": {
-			"x": 550,
-			"y": 720,
-			"width": 42,
-			"height": 42
+			"x": 532,
+			"y": 734,
+			"width": 64,
+			"height": 64
 		},
 		"image": {
 			"path": "images/11FBC0D6-EEEC-4FD6-B3F7-378D3D6166AB.png",
 			"frame": {
-				"x": 550,
-				"y": 720,
-				"width": 42,
-				"height": 42
+				"x": 532,
+				"y": 734,
+				"width": 64,
+				"height": 64
 			}
 		},
 		"imageType": "png",
@@ -79,16 +79,16 @@ window.__imported__["dots/layers.json.js"] = [
 		"layerFrame": {
 			"x": 50,
 			"y": 721,
-			"width": 42,
-			"height": 42
+			"width": 64,
+			"height": 64
 		},
 		"image": {
 			"path": "images/D15AA5DF-4BBA-4BAC-8FCA-727F775FD78F.png",
 			"frame": {
 				"x": 50,
 				"y": 721,
-				"width": 42,
-				"height": 42
+				"width": 64,
+				"height": 64
 			}
 		},
 		"imageType": "png",
@@ -101,16 +101,16 @@ window.__imported__["dots/layers.json.js"] = [
 		"name": "dotActive",
 		"maskFrame": null,
 		"layerFrame": {
-			"x": 211,
-			"y": 246,
+			"x": 283,
+			"y": 291,
 			"width": 82,
 			"height": 82
 		},
 		"image": {
 			"path": "images/485FA0DF-1A5D-488E-85F0-5DEB87DC68C9.png",
 			"frame": {
-				"x": 211,
-				"y": 246,
+				"x": 283,
+				"y": 291,
 				"width": 82,
 				"height": 82
 			}
@@ -123,16 +123,16 @@ window.__imported__["dots/layers.json.js"] = [
 				"name": "dotScale",
 				"maskFrame": null,
 				"layerFrame": {
-					"x": 211,
-					"y": 246,
+					"x": 283,
+					"y": 291,
 					"width": 82,
 					"height": 82
 				},
 				"image": {
 					"path": "images/9951C0A8-EA40-40D5-8574-07ED9DBA9204.png",
 					"frame": {
-						"x": 211,
-						"y": 246,
+						"x": 283,
+						"y": 291,
 						"width": 82,
 						"height": 82
 					}
@@ -145,16 +145,16 @@ window.__imported__["dots/layers.json.js"] = [
 						"name": "dotInside",
 						"maskFrame": null,
 						"layerFrame": {
-							"x": 211,
-							"y": 246,
+							"x": 283,
+							"y": 291,
 							"width": 82,
 							"height": 82
 						},
 						"image": {
 							"path": "images/D43E459E-AAD0-4A0B-8549-1E4185548F6A.png",
 							"frame": {
-								"x": 211,
-								"y": 246,
+								"x": 283,
+								"y": 291,
 								"width": 82,
 								"height": 82
 							}

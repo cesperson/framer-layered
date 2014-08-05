@@ -71,35 +71,45 @@
 
   PSD.dotActive.states["switch"]("dot1");
 
-  PSD.dotInside.states.animationOptions = {
-    curve: "ease-out",
-    time: 0.15
-  };
-
   PSD.dotInside.states.add({
     top: {
-      y: PSD.dotInside.originalFrame.y
+      y: PSD.dotInside.originalFrame.y + 100
     },
     bottom: {
-      y: PSD.dotInside.originalFrame.y
+      y: PSD.dotInside.originalFrame.y - 100
     }
   });
 
   PSD.dotInside.states.animationOptions = {
-    curve: "spring(150, 50, 10)"
+    curve: "bezier-curve",
+    curveOptions: "ease-in-out",
+    time: 0.5
   };
+
+  PSD.dotInside.on(Events.AnimationEnd, function() {
+    if (PSD.dotInside.states.current === "top") {
+      return PSD.dotInside.states["switch"]("bottom");
+    } else {
+      return PSD.dotInside.states["switch"]("top");
+    }
+  });
+
+  PSD.dotInside.states["switch"]("top");
 
   PSD.dotScale.states.add({
     big: {
-      scale: 1.25
+      scale: 1.5
     },
     small: {
-      scale: 0.75
+      scale: 0.5
     }
   });
 
+  PSD.dotScale.states.animationOptions = {
+    curve: 'spring(150,20,0)'
+  };
+
   PSD.dotScale.on(Events.AnimationEnd, function() {
-    console.log("what");
     if (PSD.dotScale.states.current === "big") {
       return PSD.dotScale.states["switch"]("small");
     } else {

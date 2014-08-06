@@ -32,13 +32,16 @@ prepDot = (view) ->
     view.opacity = 0.1
   view.opacity = 0.1
 
-PSD.dotActive.x = 100
-PSD.dotActive.y = 100
-PSD.dotActive.style =
-  backgroundColor: "#fff"
-  borderRadius: "50%"
-  border: "4px solid white"
+#PSD.dotScale.x = 100
+#PSD.dotScale.y = 100
+#PSD.dotScale.style =
+#  backgroundColor: "#fff"
+#  borderRadius: "50%"
+#  border: "4px solid white"
 
+PSD.gear.style.pointerEvents = "all"
+#  "pointer-events": "all"
+#  "cursor": "pointer"
 PSD.dotActive.sendToBack()
 PSD.dotActive.placeBefore PSD.background
 PSD.bg.sendToBack()
@@ -79,7 +82,7 @@ verticalOffset = PSD.distancedot1.y - PSD.distancedot2.y
 
 setVerticalOffset = ->
   verticalOffset = PSD.distancedot1.y - PSD.distancedot2.y
-  console.log verticalOffset
+#  console.log verticalOffset
   PSD.dotInside.states.add
     top:
       y: PSD.dotInside.originalFrame.y + verticalOffset
@@ -162,7 +165,7 @@ PSD.dotScale.states.switch "small"
 ## Scaling control
 
 # Make the layer draggable
-PSD.scalecontrol.draggable.enabled = true
+#PSD.scalecontrol.draggable.enabled = true
 
 PSD.scalecontrol.states.add
   big:
@@ -173,11 +176,13 @@ PSD.scalecontrol.states.add
 PSD.scalecontrol.states.animationOptions =
   curve:'spring(150,20,0)'
 
-PSD.scalecontrol.on Events.AnimationEnd, ->
-  if PSD.scalecontrol.states.current == "big"
-    PSD.scalecontrol.states.switch "small"
-  else
-    PSD.scalecontrol.states.switch "big"
+do setupScaleAnimation = ->
+  PSD.scalecontrol.on Events.AnimationEnd, ->
+#    console.log "what"
+    if PSD.scalecontrol.states.current == "big"
+      PSD.scalecontrol.states.switch "small"
+    else
+      PSD.scalecontrol.states.switch "big"
 
 PSD.scalecontrol.states.switch "small"
 
@@ -188,9 +193,11 @@ PSD.plus.on Events.TouchEnd, ->
   PSD.scalecontrol.states.add
     big:
       scale: PSD.scalecontrol.states._states.big.scale + 0.1
-  PSD.dotScale.states.switchInstant "big"
-  PSD.scalecontrol.states.switchInstant "big"
 
+  PSD.dotScale.animateStop()
+  PSD.dotScale.states.switch "big"
+  PSD.scalecontrol.animateStop()
+  PSD.scalecontrol.states.switch "big"
 
 PSD.minus.on Events.TouchEnd, ->
   PSD.dotScale.states.add
@@ -199,4 +206,12 @@ PSD.minus.on Events.TouchEnd, ->
   PSD.scalecontrol.states.add
     big:
       scale: PSD.scalecontrol.states._states.big.scale - 0.1
+
+  PSD.dotScale.animateStop()
+  PSD.dotScale.states.switch "big"
+  PSD.scalecontrol.animateStop()
+  PSD.scalecontrol.states.switch "big"
+
+PSD.gear.on Events.TouchEnd, ->
+    # ADD TOUCH END
 

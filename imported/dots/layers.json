@@ -197,17 +197,17 @@
 		"maskFrame": null,
 		"layerFrame": {
 			"x": 57,
-			"y": 217,
+			"y": 221,
 			"width": 42,
-			"height": 49
+			"height": 42
 		},
 		"image": {
 			"path": "images/A3593E98-9E49-4646-8144-1FAB08AD9CD8.png",
 			"frame": {
 				"x": 57,
-				"y": 217,
+				"y": 221,
 				"width": 42,
-				"height": 49
+				"height": 42
 			}
 		},
 		"imageType": "png",
@@ -221,17 +221,41 @@
 		"maskFrame": null,
 		"layerFrame": {
 			"x": 57,
-			"y": 366,
+			"y": 371,
 			"width": 42,
-			"height": 49
+			"height": 42
 		},
 		"image": {
 			"path": "images/A52835DB-D4BE-4B34-A1E8-BE0371CF8E88.png",
 			"frame": {
 				"x": 57,
-				"y": 366,
+				"y": 371,
 				"width": 42,
-				"height": 49
+				"height": 42
+			}
+		},
+		"imageType": "png",
+		"modification": null,
+		"children": [],
+		"visible": true
+	},
+	{
+		"id": "08B090A4-B443-47D7-939A-AE09C1172EAF",
+		"name": "gear",
+		"maskFrame": null,
+		"layerFrame": {
+			"x": 46,
+			"y": 55,
+			"width": 64,
+			"height": 64
+		},
+		"image": {
+			"path": "images/08B090A4-B443-47D7-939A-AE09C1172EAF.png",
+			"frame": {
+				"x": 46,
+				"y": 55,
+				"width": 64,
+				"height": 64
 			}
 		},
 		"imageType": "png",

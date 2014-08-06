@@ -3,9 +3,6 @@ PSD = Framer.Importer.load("imported/dots")
 # Add original frame information to each layer
 tools.storeOriginal(PSD)
 
-
-# Disable click on active dot
-
 PSD.dotActive.states.animationOptions =
   curve: "bezier-curve"
   curveOptions: "ease-in-out"
@@ -26,22 +23,8 @@ resetStates = ->
 prepDot = (view) ->
   view.draggable.enabled = true
   view.on Events.DragMove, resetStates
-  #  view.on Events.DragStart, ->
-  #    view.opacity = 1
-  #  view.on Events.DragEnd, ->
-  #    view.opacity = 0.1
-  #  view.opacity = 0.1
-
-#PSD.dotScale.x = 100
-#PSD.dotScale.y = 100
-#PSD.dotScale.style =
-#  backgroundColor: "#fff"
-#  borderRadius: "50%"
-#  border: "4px solid white"
 
 PSD.gear.style.pointerEvents = "all"
-#  "pointer-events": "all"
-#  "cursor": "pointer"
 PSD.dotActive.sendToBack()
 PSD.dotActive.placeBefore PSD.background
 PSD.bg.sendToBack()
@@ -52,27 +35,17 @@ prepDot PSD.dot3
 
 resetStates()
 
-nextState = (view) ->
-  if view.states.current == "default" || view.states.current == "dot3"
-    PSD.dotActive.states.switch "dot1"
-  else if view.states.current == "dot1"
-    PSD.dotActive.states.switch "dot2"
-  else if view.states.current == "dot2"
-    PSD.dotActive.states.switch "dot3"
-
 PSD.dotActive.on Events.AnimationEnd, ->
-  if PSD.dotActive.states.current == "dot3"
-    PSD.dotActive.states.switch "dot1"
-  else if PSD.dotActive.states.current == "dot1"
-    PSD.dotActive.states.switch "dot2"
-  else if PSD.dotActive.states.current == "dot2"
-    PSD.dotActive.states.switch "dot3"
+  switch PSD.dotActive.states.current
+    when "dot3" then PSD.dotActive.states.switch "dot1"
+    when "dot1" then PSD.dotActive.states.switch "dot2"
+    else PSD.dotActive.states.switch "dot3"
 
 PSD.dotActive.states.switch "dot1"
 
 ## Vertical ## ------------------------------------------------------
 
-# Disable horizontal dragging
+# Enable dragging & disable horizontal dragging
 PSD.distancedot1.draggable.enabled = true
 PSD.distancedot1.draggable.speedX = 0
 PSD.distancedot2.draggable.enabled = true
@@ -82,7 +55,6 @@ verticalOffset = PSD.distancedot1.y - PSD.distancedot2.y
 
 setVerticalOffset = ->
   verticalOffset = PSD.distancedot1.y - PSD.distancedot2.y
-#  console.log verticalOffset
   PSD.dotInside.states.add
     top:
       y: PSD.dotInside.originalFrame.y + verticalOffset
@@ -98,7 +70,7 @@ setVerticalOffset = ->
 PSD.distancedot1.on Events.DragEnd, setVerticalOffset
 PSD.distancedot2.on Events.DragEnd, setVerticalOffset
 
-# Set up vertical movement
+## Vertical movement ## -----------------------------------------------
 setupVertical = (view) ->
   view.states.add
     top:
@@ -143,7 +115,6 @@ setupVertical2 = (view) ->
 
 setupVertical2(PSD.distancedotbackforth)
 
-
 ## Scaling ## -----------------------------------------------
 PSD.dotScale.states.add
   big:
@@ -162,11 +133,6 @@ PSD.dotScale.on Events.AnimationEnd, ->
 
 PSD.dotScale.states.switch "small"
 
-## Scaling control
-
-# Make the layer draggable
-#PSD.scalecontrol.draggable.enabled = true
-
 PSD.scalecontrol.states.add
   big:
     scale: 1.5
@@ -178,7 +144,6 @@ PSD.scalecontrol.states.animationOptions =
 
 do setupScaleAnimation = ->
   PSD.scalecontrol.on Events.AnimationEnd, ->
-#    console.log "what"
     if PSD.scalecontrol.states.current == "big"
       PSD.scalecontrol.states.switch "small"
     else
@@ -215,11 +180,8 @@ PSD.minus.on Events.TouchEnd, ->
 controls = [PSD.minus, PSD.plus, PSD.scalecontrol, PSD.distancedotbackforth, PSD.distancedot2,
 PSD.distancedot1, PSD.dot3, PSD.dot2, PSD.dot1]
 
+## Settings ## -----------------------------------------------
 PSD.gear.on Events.TouchEnd, ->
-#  if PSD.hideshow.opacity > 0
-#    PSD.hideshow.fadeOut()
-#  else
-#    PSD.hideshow.fadeIn()
   for layer in controls
     do (layer) ->
       if layer.opacity > 0

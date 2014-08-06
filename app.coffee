@@ -26,11 +26,11 @@ resetStates = ->
 prepDot = (view) ->
   view.draggable.enabled = true
   view.on Events.DragMove, resetStates
-  view.on Events.DragStart, ->
-    view.opacity = 1
-  view.on Events.DragEnd, ->
-    view.opacity = 0.1
-  view.opacity = 0.1
+  #  view.on Events.DragStart, ->
+  #    view.opacity = 1
+  #  view.on Events.DragEnd, ->
+  #    view.opacity = 0.1
+  #  view.opacity = 0.1
 
 #PSD.dotScale.x = 100
 #PSD.dotScale.y = 100
@@ -212,6 +212,15 @@ PSD.minus.on Events.TouchEnd, ->
   PSD.scalecontrol.animateStop()
   PSD.scalecontrol.states.switch "big"
 
-PSD.gear.on Events.TouchEnd, ->
-    # ADD TOUCH END
+controls = [PSD.minus, PSD.plus, PSD.scalecontrol, PSD.distancedotbackforth, PSD.distancedot2,
+PSD.distancedot1, PSD.dot3, PSD.dot2, PSD.dot1]
 
+PSD.gear.on Events.TouchEnd, ->
+  for layer in controls
+    do (layer) ->
+      if layer.opacity > 0
+        PSD.gear.opacity = 0.25
+        layer.opacity = 0
+      else
+        PSD.gear.opacity = 1
+        layer.opacity = 1

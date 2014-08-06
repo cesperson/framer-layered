@@ -245,18 +245,18 @@ window.__imported__["dots/layers.json.js"] = [
 		"name": "gear",
 		"maskFrame": null,
 		"layerFrame": {
-			"x": 46,
-			"y": 55,
-			"width": 64,
-			"height": 64
+			"x": 45,
+			"y": 44,
+			"width": 67,
+			"height": 51
 		},
 		"image": {
 			"path": "images/08B090A4-B443-47D7-939A-AE09C1172EAF.png",
 			"frame": {
-				"x": 46,
-				"y": 55,
-				"width": 64,
-				"height": 64
+				"x": 45,
+				"y": 44,
+				"width": 67,
+				"height": 51
 			}
 		},
 		"imageType": "png",
@@ -269,16 +269,16 @@ window.__imported__["dots/layers.json.js"] = [
 		"name": "dotActive",
 		"maskFrame": null,
 		"layerFrame": {
-			"x": 290,
-			"y": 171,
+			"x": 289,
+			"y": 207,
 			"width": 82,
 			"height": 82
 		},
 		"image": {
 			"path": "images/485FA0DF-1A5D-488E-85F0-5DEB87DC68C9.png",
 			"frame": {
-				"x": 290,
-				"y": 171,
+				"x": 289,
+				"y": 207,
 				"width": 82,
 				"height": 82
 			}
@@ -291,16 +291,16 @@ window.__imported__["dots/layers.json.js"] = [
 				"name": "dotInside",
 				"maskFrame": null,
 				"layerFrame": {
-					"x": 290,
-					"y": 171,
+					"x": 289,
+					"y": 207,
 					"width": 82,
 					"height": 82
 				},
 				"image": {
 					"path": "images/9951C0A8-EA40-40D5-8574-07ED9DBA9204.png",
 					"frame": {
-						"x": 290,
-						"y": 171,
+						"x": 289,
+						"y": 207,
 						"width": 82,
 						"height": 82
 					}
@@ -313,16 +313,16 @@ window.__imported__["dots/layers.json.js"] = [
 						"name": "dotScale",
 						"maskFrame": null,
 						"layerFrame": {
-							"x": 290,
-							"y": 171,
+							"x": 289,
+							"y": 207,
 							"width": 82,
 							"height": 82
 						},
 						"image": {
 							"path": "images/D43E459E-AAD0-4A0B-8549-1E4185548F6A.png",
 							"frame": {
-								"x": 290,
-								"y": 171,
+								"x": 289,
+								"y": 207,
 								"width": 82,
 								"height": 82
 							}

@@ -32,6 +32,13 @@ prepDot = (view) ->
     view.opacity = 0.1
   view.opacity = 0.1
 
+PSD.dotActive.x = 100
+PSD.dotActive.y = 100
+PSD.dotActive.style =
+  backgroundColor: "#fff"
+  borderRadius: "50%"
+  border: "4px solid white"
+
 PSD.dotActive.sendToBack()
 PSD.dotActive.placeBefore PSD.background
 PSD.bg.sendToBack()
@@ -181,6 +188,9 @@ PSD.plus.on Events.TouchEnd, ->
   PSD.scalecontrol.states.add
     big:
       scale: PSD.scalecontrol.states._states.big.scale + 0.1
+  PSD.dotScale.states.switchInstant "big"
+  PSD.scalecontrol.states.switchInstant "big"
+
 
 PSD.minus.on Events.TouchEnd, ->
   PSD.dotScale.states.add
@@ -189,29 +199,4 @@ PSD.minus.on Events.TouchEnd, ->
   PSD.scalecontrol.states.add
     big:
       scale: PSD.scalecontrol.states._states.big.scale - 0.1
-
-
-# Add an animation to the end of a drag
-#PSD.scalecontrol.on Events.DragEnd, (event, layer) ->
-#
-#  difference = layer.x - layer.originalFrame.x
-#  console.log "difference " + difference
-#  console.log "scale " + layer.scale * 0.1
-#  # update scalecontrol scaling
-#  PSD.scalecontrol.states.add
-#    big:
-#      scale: layer.scale + (difference * 0.1)
-#    small:
-#      scale: 0.5
-#
-#  # Snap back to origin
-#  animation = layer.animate
-#    properties:
-#      x: layer.originalFrame.x
-#      y: layer.originalFrame.y
-#    curve: "spring"
-#    curveOptions:
-#      friction: 20
-#      tension: 400
-#      velocity: 20
 

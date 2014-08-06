@@ -41,6 +41,16 @@
     return view.opacity = 0.1;
   };
 
+  PSD.dotActive.x = 100;
+
+  PSD.dotActive.y = 100;
+
+  PSD.dotActive.style = {
+    backgroundColor: "#fff",
+    borderRadius: "50%",
+    border: "4px solid white"
+  };
+
   PSD.dotActive.sendToBack();
 
   PSD.dotActive.placeBefore(PSD.background);
@@ -218,11 +228,13 @@
         scale: PSD.scalecontrol.states._states.big.scale + 0.1
       }
     });
-    return PSD.scalecontrol.states.add({
+    PSD.scalecontrol.states.add({
       big: {
         scale: PSD.scalecontrol.states._states.big.scale + 0.1
       }
     });
+    PSD.dotScale.states.switchInstant("big");
+    return PSD.scalecontrol.states.switchInstant("big");
   });
 
   PSD.minus.on(Events.TouchEnd, function() {

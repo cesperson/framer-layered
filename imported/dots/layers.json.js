@@ -102,7 +102,7 @@ window.__imported__["dots/layers.json.js"] = [
 		"maskFrame": null,
 		"layerFrame": {
 			"x": 567,
-			"y": 324,
+			"y": 373,
 			"width": 42,
 			"height": 42
 		},
@@ -110,7 +110,7 @@ window.__imported__["dots/layers.json.js"] = [
 			"path": "images/B3B011A9-9DA6-43FB-B4B1-B30559FEC4EA.png",
 			"frame": {
 				"x": 567,
-				"y": 324,
+				"y": 373,
 				"width": 42,
 				"height": 42
 			}
@@ -150,7 +150,7 @@ window.__imported__["dots/layers.json.js"] = [
 		"maskFrame": null,
 		"layerFrame": {
 			"x": 576,
-			"y": 283,
+			"y": 307,
 			"width": 24,
 			"height": 24
 		},
@@ -158,7 +158,7 @@ window.__imported__["dots/layers.json.js"] = [
 			"path": "images/5265520D-B7F3-4F82-BC95-BCD8EC0391FE.png",
 			"frame": {
 				"x": 576,
-				"y": 283,
+				"y": 307,
 				"width": 24,
 				"height": 24
 			}
@@ -174,7 +174,7 @@ window.__imported__["dots/layers.json.js"] = [
 		"maskFrame": null,
 		"layerFrame": {
 			"x": 47,
-			"y": 283,
+			"y": 285,
 			"width": 62,
 			"height": 62
 		},
@@ -182,9 +182,57 @@ window.__imported__["dots/layers.json.js"] = [
 			"path": "images/B386B1D1-279D-4846-8ED1-405CF86A5209.png",
 			"frame": {
 				"x": 47,
-				"y": 283,
+				"y": 285,
 				"width": 62,
 				"height": 62
+			}
+		},
+		"imageType": "png",
+		"modification": null,
+		"children": [],
+		"visible": true
+	},
+	{
+		"id": "A3593E98-9E49-4646-8144-1FAB08AD9CD8",
+		"name": "plus",
+		"maskFrame": null,
+		"layerFrame": {
+			"x": 57,
+			"y": 217,
+			"width": 42,
+			"height": 49
+		},
+		"image": {
+			"path": "images/A3593E98-9E49-4646-8144-1FAB08AD9CD8.png",
+			"frame": {
+				"x": 57,
+				"y": 217,
+				"width": 42,
+				"height": 49
+			}
+		},
+		"imageType": "png",
+		"modification": null,
+		"children": [],
+		"visible": true
+	},
+	{
+		"id": "A52835DB-D4BE-4B34-A1E8-BE0371CF8E88",
+		"name": "minus",
+		"maskFrame": null,
+		"layerFrame": {
+			"x": 57,
+			"y": 366,
+			"width": 42,
+			"height": 49
+		},
+		"image": {
+			"path": "images/A52835DB-D4BE-4B34-A1E8-BE0371CF8E88.png",
+			"frame": {
+				"x": 57,
+				"y": 366,
+				"width": 42,
+				"height": 49
 			}
 		},
 		"imageType": "png",
@@ -264,54 +312,6 @@ window.__imported__["dots/layers.json.js"] = [
 				"visible": true
 			}
 		],
-		"visible": true
-	},
-	{
-		"id": "A3593E98-9E49-4646-8144-1FAB08AD9CD8",
-		"name": "plus",
-		"maskFrame": null,
-		"layerFrame": {
-			"x": 66,
-			"y": 209,
-			"width": 24,
-			"height": 49
-		},
-		"image": {
-			"path": "images/A3593E98-9E49-4646-8144-1FAB08AD9CD8.png",
-			"frame": {
-				"x": 66,
-				"y": 209,
-				"width": 24,
-				"height": 49
-			}
-		},
-		"imageType": "png",
-		"modification": null,
-		"children": [],
-		"visible": true
-	},
-	{
-		"id": "A52835DB-D4BE-4B34-A1E8-BE0371CF8E88",
-		"name": "minus",
-		"maskFrame": null,
-		"layerFrame": {
-			"x": 71,
-			"y": 366,
-			"width": 14,
-			"height": 49
-		},
-		"image": {
-			"path": "images/A52835DB-D4BE-4B34-A1E8-BE0371CF8E88.png",
-			"frame": {
-				"x": 71,
-				"y": 366,
-				"width": 14,
-				"height": 49
-			}
-		},
-		"imageType": "png",
-		"modification": null,
-		"children": [],
 		"visible": true
 	}
 ]

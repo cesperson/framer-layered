@@ -216,6 +216,10 @@ controls = [PSD.minus, PSD.plus, PSD.scalecontrol, PSD.distancedotbackforth, PSD
 PSD.distancedot1, PSD.dot3, PSD.dot2, PSD.dot1]
 
 PSD.gear.on Events.TouchEnd, ->
+#  if PSD.hideshow.opacity > 0
+#    PSD.hideshow.fadeOut()
+#  else
+#    PSD.hideshow.fadeIn()
   for layer in controls
     do (layer) ->
       if layer.opacity > 0
